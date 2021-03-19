@@ -9,14 +9,14 @@ const ListComponent = ({Todo}) =>{
         <div className="col-6 offset-2">
             <ul>
 
-                {Todo.map(todo=>
+                {Todo.map(to, index=>(
                     <div>
-                        <li>{todo.task}</li>
+                        <li>{to.task}</li>
                         <button className="btn btn-danger col-1 offset-1">X</button>   
                     </div>
                 
-                    // <Todo key={todo.indexOf()+1} Todo={todo}/>
-                )}   
+                    // <Todo key={index+1} Todo={todo}/>
+                ))}   
 
 
             </ul>  
