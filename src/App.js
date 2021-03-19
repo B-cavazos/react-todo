@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import HeadingComponent from './HeadingComponent';
+import InputComponent from './InputComponent';
+import ListComponent from './ListComponent';
+import toDoItems from './toDoItems';
 
-function App() {
+
+const App = () =>{
+ 
+  //useState
+  const [todos, setTodos] = useState([toDoItems]);
+
+//function to add object to todo array - add button
+  const addTodo = (todo) =>{
+    setTodos=([todo, ...todos]);
+  };
+  
+//function to remove object from array
+/* const removeTask = () =>{
+
+}; */
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  // rendering components
+    <div className="container">
+      <HeadingComponent />
+      <InputComponent addTodo={addTodo}/>
+      <ListComponent />
     </div>
   );
 }
